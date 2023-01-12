@@ -50,3 +50,17 @@ class MongoHandler:
         except:
             traceback.print_exc()
             raise Exception("User insertion failed")
+
+    def find_user(self, query):
+        """
+        `user: dict` - dict of User Schema - pass empty dict if you want to get all users
+
+        """
+        self.mongo_init()
+
+        try:
+            users = User.find(query, cursor=AS_DICT)
+            return users
+        except:
+            traceback.print_exc()
+            raise Exception("Error initializing database")
