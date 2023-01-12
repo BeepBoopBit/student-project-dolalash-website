@@ -1,17 +1,13 @@
-import json
 import pymongo
 
 class PyMo:
-    def __init__(self, path):
+    def __init__(self, credentials):
         """
         Description: Sets up mongoDB\n
-        `path: string` - path to your credentials.json
+        `credentials: dict` - credentials dictionary containing (user, password, clusterAddress)
         """
-        f = open(path)
-        data = json.load(f)
 
-        self.credentials = data
-        f.close()
+        self.credentials = credentials
 
         # Check if credentials.json has the keys "user" and "pass"
         self.__validate_credentials();
