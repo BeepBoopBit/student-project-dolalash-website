@@ -1,0 +1,4 @@
+virtual_environment/Include
+virtual_environment/Lib
+virtual_environment/Scripts
+virtual_environment/pyvenv.cfg
