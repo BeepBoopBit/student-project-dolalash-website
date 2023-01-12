@@ -15,24 +15,20 @@ def generate_html_view(path_to_html: str):
 @csrf_protect
 def handle_registration(request):
     # a dict containing the form answers
-    form_data = request.POST
+    form_data = {}
+    for key, value in request.POST.items():
+        form_data[key] = value
 
-    # add data to database
-    credentials = {
-        "username": form_data["username"],
-        "password": form_data["password"],
-    }
+    # check if username already exists
+    query = { "username": form_data["username"] }
+    matches = database.find("userdb", "users", query)
 
-    profile = {
-        "fname": form_data["fname"],
-        "lname": form_data["lname"],
-        "email": form_data["email"],
-        "phone": form_data["phone"],
-    }
-    
-    database.insert("userdb", "credentials", credentials)
-    database.insert("userdb", "profiles", profile)
-    
+    # if there is a match, abort registrtion
+    if len(matches) > 0:
+        return render(request, "register_fail.html")
+
+    # else
+    database.insert("userdb", "users", form_data)    
     return render(request, "register_success.html")
 
 @csrf_protect
@@ -44,6 +40,15 @@ def handle_login(request):
         "password": form_data["password"],
     }
 
+    # find account matching the credentials
+    matches = database.find("userdb", "users", credentials)
+
+    # if there are no accounts, credentials are wrong. abort
+    if len(matches) == 0:
+        return render(request, "login_fail.html")
+        
+    return render(request, "login_success.html")
+    
     # validate credentials
 
 home = generate_html_view("home.html")
@@ -52,3 +57,4 @@ products = generate_html_view("products.html")
 profile = generate_html_view("profile.html")
 about = generate_html_view("about.html")
 register = generate_html_view("register.html")
+login = generate_html_view("login.html")

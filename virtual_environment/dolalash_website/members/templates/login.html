@@ -15,33 +15,17 @@
     <a href="/profile">profile</a><br>
     <a href="/about">about</a><br>
     <a href="/register">register account</a><br>
-    <a href="/login">register account</a><br>
+    <a href="/login">login</a><br>
 
     <br>
     
-    <form method="POST" action="/handle_registration/">
+    <form method="POST" action="/handle_login/">
         {% csrf_token %}
-        <label for="fname">First name:</label><br>
-        <input type="text" id="fname" name="fname" required><br>
-
-        <label for="lname">Last name:</label><br>
-        <input type="text" id="lname" name="lname" required><br>
-
-        <br>
-        
         <label for="username">Username:</label><br>
         <input type="text" id="username" name="username" required><br>
         
         <label for="password">Password:</label><br>
         <input type="password" id="password" name="password" required><br>
-
-        <br>
-        
-        <label for="email">Email:</label><br>
-        <input type="email" id="email" name="email" required><br>
-        
-        <label for="phone">Mobile Number:</label><br>
-        <input type="tel" id="phone" name="phone" required><br>
 
         <br>
 

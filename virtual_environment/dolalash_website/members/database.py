@@ -11,3 +11,9 @@ def insert(database: str, collection: str, data: dict) -> None:
     db = client[database]
     col = db[collection]
     col.insert_one(data)
+
+def find(database: str, collection: str, query: dict) -> tuple:
+    global client
+    db = client[database]
+    col = db[collection]
+    return tuple(col.find(query))
