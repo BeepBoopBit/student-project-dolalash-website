@@ -20,11 +20,11 @@ class MongoHandler:
         
         try:
             schemas = {
-                "user": User(empty=True).schema,
-                "schedule": Schedule(empty=True).schema
+                "users": User(empty=True).schema,
+                "schedules": Schedule(empty=True).schema
             }
 
-            set_schemas(mongo.mongoClient[self.database_name], schemas)
+            set_schemas(mongo.mongoClient[self.database_name], schemas, _debug_log_=False)
         except:
             traceback.print_exc()
             print("Error initializing database")
@@ -47,6 +47,7 @@ class MongoHandler:
                 mobile=schema["mobile"]
             )
             user_id = user.save()
+            return user_id
         except:
             traceback.print_exc()
             raise Exception("User insertion failed")

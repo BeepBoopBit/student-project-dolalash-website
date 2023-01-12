@@ -15,7 +15,7 @@ class Schedule(Schema):
     Sets up the Schedule Schema
     """
 
-    schema_name = "schedule"
+    schema_name = "schedules"
     
     id = None
     title = None

@@ -15,7 +15,7 @@ class User(Schema):
     Sets up the User Schema
     """
     
-    schema_name = "user"
+    schema_name = "users"
 
     id = None
     username = None
