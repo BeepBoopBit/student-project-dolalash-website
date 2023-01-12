@@ -64,3 +64,20 @@ class MongoHandler:
         except:
             traceback.print_exc()
             raise Exception("Error initializing database")
+
+    def delete_user(self, id):
+        """
+        `id: string` - id of User to be deleted
+        """
+        self.mongo_init()
+        try:
+            count = User.delete({"_id": id})
+
+            if count == 0:
+                raise Exception("No data was deleted")
+                return 1
+            print("Delete one exit with code 0")
+            return 0
+        except:
+            raise Exception("Error deleting one")
+            return 1
