@@ -3,13 +3,20 @@ from django.http import HttpResponse
 from django.template import loader
 from django.views.decorators.csrf import csrf_protect
 from . import database
+from .user import User
 
 # Create your views here.
 
 def generate_html_view(path_to_html: str):
     def view(request):
-        template = loader.get_template(path_to_html)
-        return render(request, path_to_html)
+        context = {
+            "is_logged_in": User.is_logged_in,
+            "full_name": f"{User.fname} {User.lname}",
+            "email": User.email,
+            "phone": User.phone,
+            "username": User.username,
+        }
+        return render(request, path_to_html, context)
     return view
 
 @csrf_protect
@@ -49,10 +56,30 @@ def handle_login(request):
     # if there are no accounts, credentials are wrong. abort
     if len(matches) == 0:
         return render(request, "login_fail.html")
-        
-    return render(request, "login_success.html")
-    
+
+    user_data = matches[0]
+    User.login(user_data)
+    context = {
+        "is_logged_in": User.is_logged_in,
+        "full_name": f"{User.fname} {User.lname}",
+        "email": User.email,
+        "phone": User.phone,
+        "username": User.username,        
+    }
+    return render(request, "login_success.html", context)    
     # validate credentials
+    
+def logout(request):
+    User.logout()
+    context = {
+        "is_logged_in": User.is_logged_in,
+        "full_name": f"{User.fname} {User.lname}",
+        "email": User.email,
+        "phone": User.phone,
+        "username": User.username,
+    }
+    return render(request, "home.html", context)
+
 
 home = generate_html_view("home.html")
 services = generate_html_view("services.html")
