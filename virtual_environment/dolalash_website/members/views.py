@@ -20,11 +20,14 @@ def handle_registration(request):
         form_data[key] = value
 
     # check if username already exists
-    query = { "username": form_data["username"] }
-    matches = database.find("userdb", "users", query)
+    query_username = { "username": form_data["username"] }
+    matches_username = database.find("userdb", "users", query_username)
+
+    query_email = { "email": form_data["email"] }
+    matches_email = database.find("userdb", "users", query_email)
 
     # if there is a match, abort registrtion
-    if len(matches) > 0:
+    if len(matches_username) > 0 or len(matches_email) > 0:
         return render(request, "register_fail.html")
 
     # else
