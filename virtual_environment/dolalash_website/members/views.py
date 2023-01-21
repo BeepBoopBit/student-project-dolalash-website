@@ -80,11 +80,9 @@ def logout(request):
     }
     return render(request, "home.html", context)
 
-
 home = generate_html_view("home.html")
 services = generate_html_view("services.html")
-products = generate_html_view("products.html")
+about = generate_html_view("about-us.html")
+contact = generate_html_view("contact.html")
 profile = generate_html_view("profile.html")
-about = generate_html_view("about.html")
-register = generate_html_view("register.html")
-login = generate_html_view("login.html")
+forms = generate_html_view("forms.html")

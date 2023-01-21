@@ -1,0 +1,139 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Forms - DO LA LASH</title>
+    {% include "head.html" %}
+  </head>
+  <body>
+    <div>
+      <link href="{% static 'forms.css' %}" rel="stylesheet" />
+
+      <div class="forms-container">
+        <header data-role="Header" class="forms-header max-width-container">
+          <div class="forms-navbar">
+            <div class="forms-container1"></div>
+            <div class="forms-middle">
+              <div class="forms-left">
+                <a href="/" class="forms-text navbar-link">HOME</a>
+                <a href="/services" class="forms-text01 navbar-link">
+                  SERVICES
+                </a>
+              </div>
+              <span class="navbar-logo-title">DO LA LASH</span>
+              <div class="forms-right">
+                <a href="/about-us" class="forms-text02 navbar-link">
+                  ABOUT US
+                </a>
+                <a href=".contact" class="forms-text03 navbar-link">
+                  CONTACT
+                </a>
+              </div>
+            </div>
+            <div class="forms-icons">
+              <a href="/profile" class="forms-navlink">
+                <img
+                  alt="AccountCircle3271301"
+                  src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0nMjQnIGhlaWdodD0nMjQnIHZpZXdCb3g9JzAgMCAyNCAyNCcgZmlsbD0nbm9uZScgeG1sbnM9J2h0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnJz4KPHBhdGggZD0nTTEyIDJDNi40OCAyIDIgNi40OCAyIDEyQzIgMTcuNTIgNi40OCAyMiAxMiAyMkMxNy41MiAyMiAyMiAxNy41MiAyMiAxMkMyMiA2LjQ4IDE3LjUyIDIgMTIgMlpNMTIgNUMxMy42NiA1IDE1IDYuMzQgMTUgOEMxNSA5LjY2IDEzLjY2IDExIDEyIDExQzEwLjM0IDExIDkgOS42NiA5IDhDOSA2LjM0IDEwLjM0IDUgMTIgNVpNMTIgMTkuMkM5LjUgMTkuMiA3LjI5IDE3LjkyIDYgMTUuOThDNi4wMyAxMy45OSAxMCAxMi45IDEyIDEyLjlDMTMuOTkgMTIuOSAxNy45NyAxMy45OSAxOCAxNS45OEMxNi43MSAxNy45MiAxNC41IDE5LjIgMTIgMTkuMlonIGZpbGw9JyMxNjE2MTYnLz4KPC9zdmc+Cg=="
+                  class="forms-image"
+                />
+              </a>
+            </div>
+          </div>
+        </header>
+        <div class="forms-pricing">
+          <div class="forms-container2">
+            <div class="forms-container3">
+              <div class="forms-container4">
+                <span class="forms-text04">
+                  <span>BOOK NOW!</span>
+                  <br />
+                </span>
+                <span class="forms-text07">Full Name</span>
+                <div class="forms-container5">
+                  <svg viewBox="0 0 1024 1024" class="forms-icon">
+                    <path
+                      d="M512 598q108 0 225 47t117 123v86h-684v-86q0-76 117-123t225-47zM512 512q-70 0-120-50t-50-120 50-121 120-51 120 51 50 121-50 120-120 50z"
+                    ></path>
+                  </svg>
+                  <input
+                    type="text"
+                    placeholder="ex. Loraine De Guzman"
+                    class="forms-textinput input"
+                  />
+                </div>
+                <span class="forms-text08">
+                  <span>Contact Number</span>
+                  <br />
+                </span>
+                <div class="forms-container6">
+                  <svg viewBox="0 0 1024 1024" class="forms-icon2">
+                    <path
+                      d="M854 656q18 0 30 12t12 30v148q0 50-42 50-298 0-512-214t-214-512q0-42 50-42h148q18 0 30 12t12 30q0 78 24 150 8 26-10 44l-82 72q92 192 294 290l66-84q12-12 30-12 10 0 14 2 72 24 150 24z"
+                    ></path>
+                  </svg>
+                  <input
+                    type="tel"
+                    placeholder="000-0000-0000"
+                    class="forms-textinput1 input"
+                  />
+                </div>
+                <span class="forms-text11">
+                  <span>Preferred Date and Time</span>
+                  <br />
+                </span>
+                <div class="forms-container7">
+                  <div class="forms-container8">
+                    <svg viewBox="0 0 1024 1024" class="forms-icon4">
+                      <path
+                        d="M854 896v-554h-684v554h684zM854 128q34 0 59 26t25 60v682q0 34-25 60t-59 26h-684q-34 0-59-26t-25-60v-682q0-34 25-60t59-26h44v-86h84v86h428v-86h84v86h44z"
+                      ></path>
+                    </svg>
+                    <input
+                      type="datetime-local"
+                      placeholder="00:00 Am/Pm"
+                      class="forms-textinput2 input"
+                    />
+                  </div>
+                </div>
+                <span class="forms-text14">
+                  <span>Service</span>
+                  <br />
+                </span>
+                <select class="forms-select">
+                  <option value="Option 1">Select Service</option>
+                  <option value="Option 2">
+                    ₱649 Bae-sick: Classic Lashes
+                  </option>
+                  <option value="Option 3">
+                    ₱799 Miss International Hybrid
+                  </option>
+                  <option value="Option 4">₱899 Lover Mega Volume</option>
+                  <option value="Option 5">₱799 Unbothered</option>
+                  <option value="Option 6">₱899 Rose</option>
+                </select>
+                <span class="forms-text17">
+                  <span>Note&nbsp;</span>
+                  <br />
+                </span>
+                <textarea
+                  placeholder="Input your additional notes or instructions here"
+                  class="forms-textarea textarea"
+                ></textarea>
+                <a href="/index" class="forms-navlink1 button">
+                  <span>
+                    <span>SUBMIT</span>
+                    <br />
+                  </span>
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <script src="https://unpkg.com/@teleporthq/teleport-custom-scripts"></script>
+    <script src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"></script>
+  </body>
+</html>
