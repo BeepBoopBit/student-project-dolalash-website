@@ -89,9 +89,18 @@ def handle_login(request):
 @csrf_protect
 def reset_password(request):
     email = request.POST["email"]
+
     # send reset password link to email provided
 
     return redirect("/log-in-and-sign-up-page")
+
+@csrf_protect
+def handle_booking(request):
+    form_data = dict(request.POST.items())
+
+    # handle booking google calendar shit here
+
+    return redirect("/")
     
 def logout(request):
     User.logout()

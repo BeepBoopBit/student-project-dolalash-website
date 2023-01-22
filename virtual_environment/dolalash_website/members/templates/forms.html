@@ -108,66 +108,40 @@
           </header>
         </div>
         <div class="forms-pricing">
-          <div class="forms-container03">
-            <div class="forms-container04">
-              <div class="forms-container05">
+          <div class="forms-container3">
+            <div class="forms-container4">
+              <div class="forms-container5">
                 <span class="forms-text04">
                   <span>BOOK NOW!</span>
                   <br />
                 </span>
-                <form class="forms-form">
-                  <span class="forms-text07">Full Name</span>
-                  <div class="forms-container06">
-                    <svg viewBox="0 0 1024 1024" class="forms-icon10">
-                      <path
-                        d="M512 598q108 0 225 47t117 123v86h-684v-86q0-76 117-123t225-47zM512 512q-70 0-120-50t-50-120 50-121 120-51 120 51 50 121-50 120-120 50z"
-                      ></path>
-                    </svg>
-                    <input
-                      type="text"
-                      placeholder="ex. Loraine De Guzman"
-                      class="forms-textinput input"
-                    />
-                  </div>
-                  <span class="forms-text08">
-                    <span>Contact Number</span>
-                    <br />
-                  </span>
-                  <div class="forms-container07">
-                    <svg viewBox="0 0 1024 1024" class="forms-icon12">
-                      <path
-                        d="M854 656q18 0 30 12t12 30v148q0 50-42 50-298 0-512-214t-214-512q0-42 50-42h148q18 0 30 12t12 30q0 78 24 150 8 26-10 44l-82 72q92 192 294 290l66-84q12-12 30-12 10 0 14 2 72 24 150 24z"
-                      ></path>
-                    </svg>
-                    <input
-                      type="tel"
-                      placeholder="000-0000-0000"
-                      class="forms-textinput1 input"
-                    />
-                  </div>
-                  <span class="forms-text11">
+                <form class="forms-form" method="POST" action="/handle_booking/">
+                  {% csrf_token %}
+                  <span class="forms-text07">
                     <span>Preferred Date and Time</span>
                     <br />
                   </span>
-                  <div class="forms-container08">
-                    <div class="forms-container09">
-                      <svg viewBox="0 0 1024 1024" class="forms-icon14">
+                  <div class="forms-container6">
+                    <div class="forms-container7">
+                      <svg viewBox="0 0 1024 1024" class="forms-icon10">
                         <path
                           d="M854 896v-554h-684v554h684zM854 128q34 0 59 26t25 60v682q0 34-25 60t-59 26h-684q-34 0-59-26t-25-60v-682q0-34 25-60t59-26h44v-86h84v86h428v-86h84v86h44z"
                         ></path>
                       </svg>
                       <input
                         type="datetime-local"
+                        name="datetime"
+                        required=""
                         placeholder="00:00 Am/Pm"
-                        class="forms-textinput2 input"
+                        class="forms-textinput input"
                       />
                     </div>
                   </div>
-                  <span class="forms-text14">
+                  <span class="forms-text10">
                     <span>Service</span>
                     <br />
                   </span>
-                  <select class="forms-select">
+                  <select required="" class="forms-select">
                     <option value="Option 1">Select Service</option>
                     <option value="Option 2">
                       ₱649 Bae-sick: Classic Lashes
@@ -179,18 +153,18 @@
                     <option value="Option 5">₱799 Unbothered</option>
                     <option value="Option 6">₱899 Rose</option>
                   </select>
-                  <span class="forms-text17">
+                  <span class="forms-text13">
                     <span>Note&nbsp;</span>
                     <br />
                   </span>
                   <textarea
+                    name="notes"
                     placeholder="Input your additional notes or instructions here"
                     class="forms-textarea textarea"
                   ></textarea>
-                  <div class="forms-container10">
-                    <a href="/" class="forms-navlink1 button">
+                  <div class="forms-container8">
+                    <input type="submit" class="forms-navlink1 button" value="Book">
                       <span>
-                        <span>Submit</span>
                         <br />
                       </span>
                     </a>
