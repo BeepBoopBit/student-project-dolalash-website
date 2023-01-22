@@ -9,4 +9,7 @@ urlpatterns = [
     path('log-in-and-sign-up-page/', views.login_signup, name='login_signup'),
     path('book/', views.book, name='book'),
     path('forgot-password/', views.forgot_password, name='forgot_password'),
+    path('handle_registration/', views.handle_registration, name='handle_registration'),
+    path('handle_login/', views.handle_login, name='handle_login'),
+    path('reset_password/', views.reset_password, name='reset_password')
  ]

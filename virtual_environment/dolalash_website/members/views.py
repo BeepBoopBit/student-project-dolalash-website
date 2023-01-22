@@ -1,52 +1,65 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from django.http import HttpResponse
 from django.template import loader
 from django.views.decorators.csrf import csrf_protect
 from . import database
 from .user import User
+from pprint import pprint
 
 # Create your views here.
 
 def generate_html_view(path_to_html: str):
     def view(request):
-        context = {
-            "is_logged_in": User.is_logged_in,
-            "full_name": f"{User.fname} {User.lname}",
-            "email": User.email,
-            "phone": User.phone,
-            "username": User.username,
-        }
-        return render(request, path_to_html, context)
+        return render(request, path_to_html)
     return view
 
 @csrf_protect
 def handle_registration(request):
     # a dict containing the form answers
-    form_data = {}
-    for key, value in request.POST.items():
-        form_data[key] = value
+    form_data = dict(request.POST.items())
+    form_data.pop("csrfmiddlewaretoken", None)
+    pprint(form_data)
 
-    # check if username already exists
+    do_passwords_match = form_data["password"] == form_data["confirm_password"]
+    if not do_passwords_match:
+        print("Passwords do not match.")
+        print("Registration aborted.")
+        return redirect("/log-in-and-sign-up-page")
+
+    form_data.pop("confirm_password")
+    
+    # check if username is already registered.
     query_username = { "username": form_data["username"] }
     matches_username = database.find("userdb", "users", query_username)
+    is_username_unique = len(matches_username) == 0
+    if not is_username_unique:
+        print(f"Username {form_data['username']} already registered.")
+        print("Registration aborted.")    
+        return redirect("/log-in-and-sign-up-page")
 
+    # check if email is already registered.
     query_email = { "email": form_data["email"] }
     matches_email = database.find("userdb", "users", query_email)
+    is_email_unique = len(matches_email) == 0
+    if not is_email_unique:
+        print(f"Email {form_data['email']} already registered.")
+        print("Registration aborted.")    
+        return redirect("/log-in-and-sign-up-page")
 
-    # if there is a match, abort registrtion
-    if len(matches_username) > 0 or len(matches_email) > 0:
-        return render(request, "register_fail.html")
-
-    # else
-    database.insert("userdb", "users", form_data)    
-    return render(request, "register_success.html")
+    # if this point is reached, then everything is valid
+    # add to database
+    database.insert("userdb", "users", form_data)
+    print("Registration successful!")
+    
+    return redirect("/log-in-and-sign-up-page")
 
 @csrf_protect
 def handle_login(request):
-    form_data = request.POST
-
+    form_data = dict(request.POST.items())
+    form_data.pop("csrfmiddlewaretoken", None)
+    
     credentials = {
-        "username": form_data["username"],
+        "email": form_data["email"],
         "password": form_data["password"],
     }
 
@@ -55,19 +68,26 @@ def handle_login(request):
 
     # if there are no accounts, credentials are wrong. abort
     if len(matches) == 0:
-        return render(request, "login_fail.html")
-
+        print("Email or password is incorrect.")
+        print("Login failed.")
+        return redirect("/log-in-and-sign-up-page")
+    
+    # if this point is reached, the credentials are valid.
     user_data = matches[0]
+    user_data.pop("_id")
+    user_data.pop("password")
+    print("Login successful!")
+
     User.login(user_data)
-    context = {
-        "is_logged_in": User.is_logged_in,
-        "full_name": f"{User.fname} {User.lname}",
-        "email": User.email,
-        "phone": User.phone,
-        "username": User.username,        
-    }
-    return render(request, "login_success.html", context)    
-    # validate credentials
+    
+    return redirect("/log-in-and-sign-up-page")
+
+@csrf_protect
+def reset_password(request):
+    email = request.POST["email"]
+    # send reset password link to email provided
+
+    return redirect("/log-in-and-sign-up-page")
     
 def logout(request):
     User.logout()

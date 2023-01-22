@@ -173,7 +173,8 @@
               </span>
               <form class="log-in-and-sign-up-page-form"
                     method="POST"
-                    action="handle_login">
+                    action="/handle_login/">
+                {% csrf_token %}
                 <span class="log-in-and-sign-up-page-text07">
                   <span>Email</span>
                   <br />
@@ -189,6 +190,7 @@
                   </svg>
                   <input
                     type="email"
+                    name="email"
                     placeholder="Type your email"
                     class="log-in-and-sign-up-page-textinput input"
                   />
@@ -208,6 +210,7 @@
                   </svg>
                   <input
                     type="password"
+                    name="password"
                     placeholder="Type your password"
                     class="log-in-and-sign-up-page-textinput1 input"
                   />
@@ -219,12 +222,11 @@
                   Forgot password?
                 </a>
                 <div class="log-in-and-sign-up-page-container07">
-                  <a
-                    href="/"
+                  <input
+                    type="submit"
                     class="log-in-and-sign-up-page-navlink2 button"
-                  >
-                    Log in
-                  </a>
+                    value="Log In"
+                  />
                 </div>
               </form>
             </div>
@@ -238,7 +240,10 @@
                   <span>Sign up</span>
                   <br />
                 </span>
-                <form class="log-in-and-sign-up-page-form1">
+                <form class="log-in-and-sign-up-page-form1"
+                      method="POST"
+                      action="/handle_registration/">
+                  {% csrf_token %}
                   <span class="log-in-and-sign-up-page-text19">Username</span>
                   <div class="log-in-and-sign-up-page-container10">
                     <svg
@@ -252,6 +257,7 @@
                     <input
                       type="text"
                       placeholder="Your username"
+                      name="username"
                       class="log-in-and-sign-up-page-textinput2 input"
                     />
                   </div>
@@ -269,6 +275,7 @@
                     </svg>
                     <input
                       type="tel"
+                      name="phone"
                       placeholder="Your phone number"
                       class="log-in-and-sign-up-page-textinput3 input"
                     />
@@ -285,6 +292,7 @@
                     </svg>
                     <input
                       type="email"
+                      name="email"
                       placeholder="Your email"
                       class="log-in-and-sign-up-page-textinput4 input"
                     />
@@ -304,6 +312,7 @@
                     </svg>
                     <input
                       type="password"
+                      name="password"
                       placeholder="Type your password"
                       class="log-in-and-sign-up-page-textinput5 input"
                     />
@@ -323,17 +332,17 @@
                     </svg>
                     <input
                       type="password"
+                      name="confirm_password"
                       placeholder="Type your password"
                       class="log-in-and-sign-up-page-textinput6 input"
                     />
                   </div>
                   <div class="log-in-and-sign-up-page-container15">
-                    <a
-                      href="/"
+                    <input
+                      type="submit"
                       class="log-in-and-sign-up-page-navlink3 button"
-                    >
-                      Create Account
-                    </a>
+                      value="Create Account"
+                    />
                   </div>
                 </form>
               </div>
