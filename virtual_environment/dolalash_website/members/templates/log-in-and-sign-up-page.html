@@ -191,9 +191,11 @@
                   <input
                     type="email"
                     name="email"
+                    required=""
                     placeholder="Type your email"
+                    autocomplete="email"
                     class="log-in-and-sign-up-page-textinput input"
-                  />
+                    />
                 </div>
                 <span class="log-in-and-sign-up-page-text10">
                   <span>Password</span>
@@ -211,6 +213,7 @@
                   <input
                     type="password"
                     name="password"
+                    required=""
                     placeholder="Type your password"
                     class="log-in-and-sign-up-page-textinput1 input"
                   />
@@ -244,7 +247,7 @@
                       method="POST"
                       action="/handle_registration/">
                   {% csrf_token %}
-                  <span class="log-in-and-sign-up-page-text19">Username</span>
+                  <span class="log-in-and-sign-up-page-text19">First name</span>
                   <div class="log-in-and-sign-up-page-container10">
                     <svg
                       viewBox="0 0 1024 1024"
@@ -256,18 +259,62 @@
                     </svg>
                     <input
                       type="text"
-                      placeholder="Your username"
-                      name="username"
+                      name="first_name"
+                      required=""
+                      placeholder="e.g. Juan"
                       class="log-in-and-sign-up-page-textinput2 input"
                     />
                   </div>
-                  <span class="log-in-and-sign-up-page-text20">
+                  <span class="log-in-and-sign-up-page-text20">Last name</span>
+                  <div class="log-in-and-sign-up-page-container11">
+                    <div class="log-in-and-sign-up-page-container12">
+                      <svg
+                        viewBox="0 0 1024 1024"
+                        class="log-in-and-sign-up-page-icon16"
+                      >
+                        <path
+                          d="M512 598q108 0 225 47t117 123v86h-684v-86q0-76 117-123t225-47zM512 512q-70 0-120-50t-50-120 50-121 120-51 120 51 50 121-50 120-120 50z"
+                        ></path>
+                      </svg>
+                      <input
+                        type="text"
+                        name="last_name"
+                        required=""
+                        placeholder="e.g. De La Cruz"
+                        class="log-in-and-sign-up-page-textinput3 input"
+                      />
+                    </div>
+                  </div>
+
+                  <span class="log-in-and-sign-up-page-text21">Username</span>
+                  <div class="log-in-and-sign-up-page-container13">
+                    <div class="log-in-and-sign-up-page-container14">
+                      <svg
+                        viewBox="0 0 1024 1024"
+                        class="log-in-and-sign-up-page-icon18"
+                      >
+                        <path
+                          d="M512 598q108 0 225 47t117 123v86h-684v-86q0-76 117-123t225-47zM512 512q-70 0-120-50t-50-120 50-121 120-51 120 51 50 121-50 120-120 50z"
+                        ></path>
+                      </svg>
+                      <input
+                        type="text"
+                        name="username"
+                        required=""
+                        placeholder="e.g. juan_delacruz"
+                        autocomplete="username"
+                        class="log-in-and-sign-up-page-textinput4 input"
+                      />
+                    </div>
+                  </div>
+
+                  <span class="log-in-and-sign-up-page-text22">
                     Phone Number
                   </span>
-                  <div class="log-in-and-sign-up-page-container11">
+                  <div class="log-in-and-sign-up-page-container15">
                     <svg
                       viewBox="0 0 1024 1024"
-                      class="log-in-and-sign-up-page-icon16"
+                      class="log-in-and-sign-up-page-icon20"
                     >
                       <path
                         d="M854 656q18 0 30 12t12 30v148q0 50-42 50-298 0-512-214t-214-512q0-42 50-42h148q18 0 30 12t12 30q0 78 24 150 8 26-10 44l-82 72q92 192 294 290l66-84q12-12 30-12 10 0 14 2 72 24 150 24z"
@@ -276,15 +323,20 @@
                     <input
                       type="tel"
                       name="phone"
-                      placeholder="Your phone number"
-                      class="log-in-and-sign-up-page-textinput3 input"
-                    />
+                      required=""
+                      maxlength="11"
+                      minlength="11"
+                      placeholder="e.g.  09123456789"
+                      autocomplete="tel"
+                      class="log-in-and-sign-up-page-textinput5 input"
+                      />
                   </div>
-                  <span class="log-in-and-sign-up-page-text21">Email</span>
-                  <div class="log-in-and-sign-up-page-container12">
+                  
+                  <span class="log-in-and-sign-up-page-text23">Email</span>
+                  <div class="log-in-and-sign-up-page-container16">
                     <svg
                       viewBox="0 0 1024 1024"
-                      class="log-in-and-sign-up-page-icon18"
+                      class="log-in-and-sign-up-page-icon22"
                     >
                       <path
                         d="M854 342v-86l-342 214-342-214v86l342 212zM854 170q34 0 59 26t25 60v512q0 34-25 60t-59 26h-684q-34 0-59-26t-25-60v-512q0-34 25-60t59-26h684z"
@@ -293,18 +345,21 @@
                     <input
                       type="email"
                       name="email"
-                      placeholder="Your email"
-                      class="log-in-and-sign-up-page-textinput4 input"
+                      required=""
+                      placeholder="e.g. juandelacruz@gmail.com"
+                      autocomplete="email"
+                      class="log-in-and-sign-up-page-textinput6 input"
                     />
                   </div>
-                  <span class="log-in-and-sign-up-page-text22">
+                  
+                  <span class="log-in-and-sign-up-page-text24">
                     <span>Create your password</span>
                     <br />
                   </span>
-                  <div class="log-in-and-sign-up-page-container13">
+                  <div class="log-in-and-sign-up-page-container17">
                     <svg
                       viewBox="0 0 1024 1024"
-                      class="log-in-and-sign-up-page-icon20"
+                      class="log-in-and-sign-up-page-icon24"
                     >
                       <path
                         d="M644 342v-86q0-54-39-93t-93-39-93 39-39 93v86h264zM512 726q34 0 60-26t26-60-26-60-60-26-60 26-26 60 26 60 60 26zM768 342q34 0 60 25t26 59v428q0 34-26 59t-60 25h-512q-34 0-60-25t-26-59v-428q0-34 26-59t60-25h42v-86q0-88 63-151t151-63 151 63 63 151v86h42z"
@@ -313,18 +368,21 @@
                     <input
                       type="password"
                       name="password"
-                      placeholder="Type your password"
-                      class="log-in-and-sign-up-page-textinput5 input"
-                    />
+                      required=""
+                      minlength="8"
+                      placeholder="Must be at least 8 characters in length"
+                      autocomplete="new-password"
+                      class="log-in-and-sign-up-page-textinput7 input"
+                      />
                   </div>
-                  <span class="log-in-and-sign-up-page-text25">
+                  <span class="log-in-and-sign-up-page-text27">
                     <span>Confirm your password</span>
                     <br />
                   </span>
-                  <div class="log-in-and-sign-up-page-container14">
+                  <div class="log-in-and-sign-up-page-container18">
                     <svg
                       viewBox="0 0 1024 1024"
-                      class="log-in-and-sign-up-page-icon22"
+                      class="log-in-and-sign-up-page-icon26"
                     >
                       <path
                         d="M644 342v-86q0-54-39-93t-93-39-93 39-39 93v86h264zM512 726q34 0 60-26t26-60-26-60-60-26-60 26-26 60 26 60 60 26zM768 342q34 0 60 25t26 59v428q0 34-26 59t-60 25h-512q-34 0-60-25t-26-59v-428q0-34 26-59t60-25h42v-86q0-88 63-151t151-63 151 63 63 151v86h42z"
@@ -333,11 +391,14 @@
                     <input
                       type="password"
                       name="confirm_password"
-                      placeholder="Type your password"
-                      class="log-in-and-sign-up-page-textinput6 input"
+                      required=""
+                      minlength="8"
+                      placeholder="Retype your password"
+                      autocomplete="new-password"
+                      class="log-in-and-sign-up-page-textinput8 input"
                     />
                   </div>
-                  <div class="log-in-and-sign-up-page-container15">
+                  <div class="log-in-and-sign-up-page-container19">
                     <input
                       type="submit"
                       class="log-in-and-sign-up-page-navlink3 button"

@@ -18,8 +18,12 @@ def handle_registration(request):
     # a dict containing the form answers
     form_data = dict(request.POST.items())
     form_data.pop("csrfmiddlewaretoken", None)
-    pprint(form_data)
 
+    form_data["first_name"] = form_data["first_name"].strip()
+    form_data["last_name"] = form_data["last_name"].strip()
+
+    pprint(form_data)
+    
     do_passwords_match = form_data["password"] == form_data["confirm_password"]
     if not do_passwords_match:
         print("Passwords do not match.")
