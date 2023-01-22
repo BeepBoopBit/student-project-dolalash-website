@@ -84,7 +84,7 @@ def handle_login(request):
 
     User.login(user_data)
     
-    return redirect("/log-in-and-sign-up-page")
+    return redirect("/profile")
 
 @csrf_protect
 def reset_password(request):
@@ -113,10 +113,28 @@ def logout(request):
     }
     return render(request, "home.html", context)
 
+def profile(request):
+    if User.is_logged_in:
+        context = {
+            "full_name": f"{User.first_name} {User.last_name}",
+            "email": User.email,
+            "phone": User.phone,
+            "password_hidden": "*******"
+        }
+        return render(request, "profile.html", context)
+    else:
+        return redirect("/log-in-and-sign-up-page")
+
+def book(request):
+    if User.is_logged_in:
+        return render(request, "forms.html")
+    else:
+        return redirect("/log-in-and-sign-up-page")
+    
+    
 home = generate_html_view("index.html")
 services = generate_html_view("services.html")
 about = generate_html_view("about-us.html")
 contact = generate_html_view("contact.html")
 login_signup = generate_html_view("log-in-and-sign-up-page.html")
-book = generate_html_view("forms.html")
 forgot_password = generate_html_view("forgot-password.html")

@@ -1,73 +1,44 @@
+{% load static %}
+
 <!DOCTYPE html>
 <html lang="en">
   <head>
     <title>Profile - DO LA LASH</title>
-    <meta property="og:title" content="Profile - DO LA LASH" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta charset="utf-8" />
-    <meta property="twitter:card" content="summary_large_image" />
-
-    <style data-tag="reset-style-sheet">
-      html {  line-height: 1.15;}body {  margin: 0;}* {  box-sizing: border-box;  border-width: 0;  border-style: solid;}p,li,ul,pre,div,h1,h2,h3,h4,h5,h6,figure,blockquote,figcaption {  margin: 0;  padding: 0;}button {  background-color: transparent;}button,input,optgroup,select,textarea {  font-family: inherit;  font-size: 100%;  line-height: 1.15;  margin: 0;}button,select {  text-transform: none;}button,[type="button"],[type="reset"],[type="submit"] {  -webkit-appearance: button;}button::-moz-focus-inner,[type="button"]::-moz-focus-inner,[type="reset"]::-moz-focus-inner,[type="submit"]::-moz-focus-inner {  border-style: none;  padding: 0;}button:-moz-focus,[type="button"]:-moz-focus,[type="reset"]:-moz-focus,[type="submit"]:-moz-focus {  outline: 1px dotted ButtonText;}a {  color: inherit;  text-decoration: inherit;}input {  padding: 2px 4px;}img {  display: block;}html { scroll-behavior: smooth  }
-    </style>
-    <style data-tag="default-style-sheet">
-      html {
-        font-family: Jost;
-        font-size: 16px;
-      }
-
-      body {
-        font-weight: 400;
-        font-style:normal;
-        text-decoration: none;
-        text-transform: none;
-        letter-spacing: 0.02;
-        line-height: 1.55;
-        color: var(--dl-color-gray-black);
-        background-color: var(--dl-color-gray-white);
-
-      }
-    </style>
-    <link
-      rel="stylesheet"
-      href="https://fonts.googleapis.com/css2?family=Jost:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&amp;display=swap"
-      data-tag="font"
-    />
-    <link rel="stylesheet" href="./style.css" />
+    {% include "head.html" %}
   </head>
   <body>
     <div>
-      <link href="./profile.css" rel="stylesheet" />
+      <link href="{% static 'profile.css' %}" rel="stylesheet" />
 
       <div class="profile-container">
         <div class="profile-navbar">
           <header data-role="Header" class="profile-header max-width-container">
             <div class="profile-navbar1">
-              <div class="profile-container01"></div>
+              <div class="profile-container1"></div>
               <div class="profile-middle">
                 <div class="profile-left">
-                  <a href="index.html" class="profile-text navbar-link">HOME</a>
-                  <a href="services.html" class="profile-text01 navbar-link">
+                  <a href="/" class="profile-text navbar-link">HOME</a>
+                  <a href="/services" class="profile-text01 navbar-link">
                     SERVICES
                   </a>
                 </div>
                 <a
-                  href="index.html"
+                  href="/"
                   class="profile-logo-center navbar-logo-title"
                 >
                   DO LA LASH
                 </a>
                 <div class="profile-right">
-                  <a href="about-us.html" class="profile-text02 navbar-link">
+                  <a href="/about-us" class="profile-text02 navbar-link">
                     ABOUT US
                   </a>
-                  <a href="contact.html" class="profile-text03 navbar-link">
+                  <a href="/contact" class="profile-text03 navbar-link">
                     CONTACT
                   </a>
                 </div>
               </div>
               <div class="profile-icons">
-                <a href="log-in-and-sign-up-page.html" class="profile-navlink">
+                <a href="/profile" class="profile-navlink">
                   <img
                     alt="AccountCircle3271301"
                     src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0nMjQnIGhlaWdodD0nMjQnIHZpZXdCb3g9JzAgMCAyNCAyNCcgZmlsbD0nbm9uZScgeG1sbnM9J2h0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnJz4KPHBhdGggZD0nTTEyIDJDNi40OCAyIDIgNi40OCAyIDEyQzIgMTcuNTIgNi40OCAyMiAxMiAyMkMxNy41MiAyMiAyMiAxNy41MiAyMiAxMkMyMiA2LjQ4IDE3LjUyIDIgMTIgMlpNMTIgNUMxMy42NiA1IDE1IDYuMzQgMTUgOEMxNSA5LjY2IDEzLjY2IDExIDEyIDExQzEwLjM0IDExIDkgOS42NiA5IDhDOSA2LjM0IDEwLjM0IDUgMTIgNVpNMTIgMTkuMkM5LjUgMTkuMiA3LjI5IDE3LjkyIDYgMTUuOThDNi4wMyAxMy45OSAxMCAxMi45IDEyIDEyLjlDMTMuOTkgMTIuOSAxNy45NyAxMy45OSAxOCAxNS45OEMxNi43MSAxNy45MiAxNC41IDE5LjIgMTIgMTkuMlonIGZpbGw9JyMxNjE2MTYnLz4KPC9zdmc+Cg=="
@@ -85,7 +56,7 @@
             </div>
             <div data-role="MobileMenu" class="profile-mobile-menu">
               <div class="profile-nav">
-                <div class="profile-container02">
+                <div class="profile-container2">
                   <span class="profile-logo-center1">DO LA LASH</span>
                   <div
                     data-role="CloseMobileMenu"
@@ -99,12 +70,12 @@
                   </div>
                 </div>
                 <div class="profile-middle1">
-                  <a href="index.html" class="profile-home">HOME</a>
-                  <a href="services.html" class="profile-services">SERVICES</a>
-                  <a href="about-us.html" class="profile-about-us">ABOUT US</a>
-                  <a href="contact.html" class="profile-contact">CONTACT</a>
+                  <a href="/" class="profile-home">HOME</a>
+                  <a href="/services" class="profile-services">SERVICES</a>
+                  <a href="/about-us" class="profile-about-us">ABOUT US</a>
+                  <a href="/contact" class="profile-contact">CONTACT</a>
                   <a
-                    href="log-in-and-sign-up-page.html"
+                    href="/profile"
                     class="profile-profile"
                   >
                     PROFILE
@@ -145,70 +116,59 @@
             </div>
           </header>
         </div>
-        <div class="profile-blog">
-          <div class="profile-container03"></div>
-          <div class="profile-container04">
-            <div class="profile-container05">
-              <div class="profile-container06">
-                <span class="profile-text04">
-                  <span>My Profile</span>
+        <div class="profile-blog"></div>
+        <div class="profile-testimonial">
+          <h1 class="profile-text04">PROFILE</h1>
+          <div class="profile-blog-post-card">
+            <img
+              alt="image"
+              src="https://images.unsplash.com/photo-1674364390022-059f9bacb9da?ixid=Mnw5MTMyMXwwfDF8YWxsfDE5fHx8fHx8Mnx8MTY3NDM4NTAzOA&amp;ixlib=rb-4.0.3&amp;w=600"
+              class="profile-image1"
+            />
+            <div class="profile-container3">
+              <span class="profile-text05">Full name</span>
+              <span class="profile-text06">{{ full_name }}</span>
+              <span class="profile-text07">
+                Lorem ipsum dolor sit amet, consectetur, adipiscing elit. Sed
+                non volutpat turpis. ​ Mauris luctus rutrum mi ut rhoncus.
+                Integer in dignissim tortor. Lorem ​​ ipsum dolor sit amet,
+                consectetur adipiscing elit.
+              </span>
+              <div class="profile-container4">
+                <div class="profile-profile1">
+                  <img
+                    alt="profile"
+                    src="https://images.unsplash.com/photo-1674082540761-440dc1b2326b?ixid=Mnw5MTMyMXwwfDF8YWxsfDJ8fHx8fHwyfHwxNjc0Mzg1MDM4&amp;ixlib=rb-4.0.3&amp;w=200"
+                    image_src="https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?ixid=Mnw5MTMyMXwwfDF8c2VhcmNofDd8fG1hbiUyMHBvcnRyYWl0fGVufDB8fHx8MTYyNjQzMTMwMw&amp;ixlib=rb-1.2.1&amp;h=1200"
+                    class="profile-image2"
+                  />
+                </div>
+                <span class="profile-text08">
+                  <span>{{ email }}</span>
                   <br />
                 </span>
-                <form class="profile-form">
-                  <span class="profile-text07">Username</span>
-                  <div class="profile-container07">
-                    <input
-                      type="text"
-                      placeholder="@juandelacruz"
-                      class="profile-textinput input"
-                    />
-                  </div>
-                  <span class="profile-text08">
-                    <span>Phone Number</span>
-                    <br />
-                  </span>
-                  <div class="profile-container08">
-                    <input
-                      type="number"
-                      placeholder="+63"
-                      class="profile-textinput1 input"
-                    />
-                  </div>
-                  <span class="profile-text11">Email</span>
-                  <div class="profile-container09">
-                    <input
-                      type="email"
-                      placeholder="juandelacruz@gmail.com"
-                      class="profile-textinput2 input"
-                    />
-                  </div>
-                  <span class="profile-text12">Password</span>
-                  <div class="profile-container10">
-                    <input
-                      type="password"
-                      placeholder="*****************"
-                      class="profile-textinput3 input"
-                    />
-                  </div>
-                  <div class="profile-container11">
-                    <button type="submit" class="profile-button button">
-                      Update
-                    </button>
-                  </div>
-                </form>
+                <span class="profile-text11">
+                  <span>{{ phone }}</span>
+                  <br />
+                </span>
+                <span class="profile-text14">
+                  <span>************</span>
+                  <br />
+                </span>
               </div>
             </div>
           </div>
+          <!--button class="profile-button button">Edit</button>
         </div>
         <div class="profile-banner">
           <footer class="profile-footer">
-            <div class="profile-container12">
-              <h3 class="profile-text13 Heading-3">DO LA LASH</h3>
-              <span class="profile-text14">
+            <div class="profile-container5">
+              <h3 class="profile-text17 Heading-3">DO LA LASH</h3>
+              <span class="profile-text18">
                 Merry Homes II Subdivision Caloocan City, barangay 174
               </span>
-              <span class="profile-text15">(671) 555-0110</span>
-              <span class="profile-text16">contact@dolalash.com</span>
+              <span class="profile-text19">(671) 555-0110</span>
+              <span class="profile-text20">contact@dolalash.com</span>
             </div>
             <div class="profile-links-container"></div>
           </footer>
