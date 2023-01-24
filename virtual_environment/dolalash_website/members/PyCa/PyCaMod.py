@@ -15,28 +15,28 @@ SCOPES = ['https://www.googleapis.com/auth/calendar']
 
 
 class PyCa:
-    def __init__(self):
+    def __init__(self, tokenPath, credentialPath):
         self.creds = None
         # The file token.json stores the user's access and refresh tokens, and is
         # created automatically when the authorization flow completes for the first
         # time.
-        if os.path.exists('token.json'):
+        if os.path.exists(tokenPath):
             self.creds = Credentials.from_authorized_user_file(
-                'token.json', SCOPES)
+                tokenPath, SCOPES)
         # If there are no (valid) credentials available, let the user log in.
         if not self.creds or not self.creds.valid:
             if self.creds and self.creds.expired and self.creds.refresh_token:
                 self.creds.refresh(Request())
             else:
                 flow = InstalledAppFlow.from_client_secrets_file(
-                    'credentials.json', SCOPES)
+                    credentialPath, SCOPES)
                 self.creds = flow.run_local_server(port=0)
             # Save the credentials for the next run
-            with open('token.json', 'w') as token:
+            with open(tokenPath, 'w') as token:
                 token.write(self.creds.to_json())
         self.service = build('calendar', 'v3', credentials=self.creds)
 
-    def createEvent(self, calendarId, event):
+    def createEvent(self, event, calendarId = "primary"):
         # Reference: https://developers.google.com/calendar/api/guides/create-events#python
         # Reference: https://developers.google.com/calendar/api/v3/reference/events/insert
         event = self.service.events().insert(calendarId=calendarId, body=event).execute()

@@ -17,3 +17,6 @@ def find(database: str, collection: str, query: dict) -> tuple:
     db = client[database]
     col = db[collection]
     return tuple(col.find(query))
+def closeServer():
+    global client
+    client.close()

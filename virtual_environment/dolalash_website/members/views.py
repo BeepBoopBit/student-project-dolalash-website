@@ -5,7 +5,7 @@ from django.views.decorators.csrf import csrf_protect
 from . import database
 from .user import User
 from pprint import pprint
-
+from .PyCa import PyCaMod
 # Create your views here.
 
 def generate_html_view(path_to_html: str):
@@ -31,6 +31,7 @@ def handle_registration(request):
         return redirect("/log-in-and-sign-up-page")
 
     form_data.pop("confirm_password")
+    database.connect("mongodb+srv://watermelon:ThisIsWatermelon073@cluster0.vrjatpa.mongodb.net/?retryWrites=true&w=majority")
     
     # check if username is already registered.
     query_username = { "username": form_data["username"] }
@@ -67,9 +68,11 @@ def handle_login(request):
         "password": form_data["password"],
     }
 
+    database.connect("mongodb+srv://watermelon:ThisIsWatermelon073@cluster0.vrjatpa.mongodb.net/?retryWrites=true&w=majority")
+
     # find account matching the credentials
     matches = database.find("userdb", "users", credentials)
-
+    
     # if there are no accounts, credentials are wrong. abort
     if len(matches) == 0:
         print("Email or password is incorrect.")
@@ -96,10 +99,56 @@ def reset_password(request):
 
 @csrf_protect
 def handle_booking(request):
+    # Get the data and store it as a dictionary
     form_data = dict(request.POST.items())
-
-    # handle booking google calendar shit here
-
+    
+    # Get the date time and change the format to RFC3339
+    startDate = form_data['datetime'] + ":00.00Z"
+    
+    # Split the data and time and add 1 hour to the time
+    myDateTime = form_data['datetime'].split("T")
+    d,t = myDateTime[0], myDateTime[1].split(':')
+    endDate = d + "T"+ str(int(t[0]) + 1) + ":" + t[1] + ":00.00Z"
+    
+    # Prepare the data for the event
+    data = {
+        # CHANGE THIS
+        'summary': "WATERMELON",
+        # CHANGE THIS
+        'location': '800 Howard St., San Francisco, CA 94103',
+        'description': str(form_data['notes']),
+        'start': { 
+            'dateTime': startDate,
+            'timeZone': 'Asia/Hong_Kong',
+        },
+        'end': {
+            'dateTime': endDate,
+            'timeZone': 'Asia/Hong_Kong',
+        },
+        'recurrence': [
+            'RRULE:FREQ=DAILY;COUNT=1'
+        ],
+        'attendees': [
+            # CHANGE THIS
+            {'email': "water@example.com"}
+        ],
+        'reminders': {
+            'useDefault': False,
+            'overrides': [
+                {'method': 'email', 'minutes': 24 * 60},
+                {'method': 'popup', 'minutes': 10},
+            ],
+        },
+    }
+    
+    # Create an instance of PyCAMod using the path
+    PyCaInstance = PyCaMod.PyCa(tokenPath="C:\\Users\\wcbre\\School\\00_Academic\\01_Y2\\Q2\\CS155L\\dolalash-website\\virtual_environment\\dolalash_website\\members\\PyCa\\token.json", 
+                                credentialPath="C:\\Users\\wcbre\\School\\00_Academic\\01_Y2\\Q2\\CS155L\\dolalash-website\\virtual_environment\\dolalash_website\\members\\PyCa\\credentials.json")
+    # Create the Event
+    PyCaInstance.createEvent(data)
+    
+    # Close the Server
+    database.closeServer()
     return redirect("/")
     
 def logout(request):
