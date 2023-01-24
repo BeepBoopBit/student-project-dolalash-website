@@ -1,0 +1,377 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>DO LA LASH</title>
+    {% include "head.html" %}
+  </head>
+  <body>
+    <div>
+      <link href="{% static 'home.css' %}" rel="stylesheet" />
+
+      <div class="home-container">
+        <div class="home-navbar">
+          <header data-role="Header" class="home-header max-width-container">
+            <div class="home-navbar1">
+              <div class="home-container01"></div>
+              <div class="home-middle">
+                <div class="home-left">
+                  <a href="/" class="home-text navbar-link">HOME</a>
+                  <a href="/services" class="home-text01 navbar-link">
+                    SERVICES
+                  </a>
+                </div>
+                <a href="/" class="home-logo-center navbar-logo-title">
+                  DO LA LASH
+                </a>
+                <div class="home-right">
+                  <a href="/about-us" class="home-text02 navbar-link">
+                    ABOUT US
+                  </a>
+                  <a href="/contact" class="home-text03 navbar-link">
+                    CONTACT
+                  </a>
+                </div>
+              </div>
+              <div class="home-icons">
+                <a href="/profile" class="home-navlink">
+                  <img
+                    alt="AccountCircle3271301"
+                    src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0nMjQnIGhlaWdodD0nMjQnIHZpZXdCb3g9JzAgMCAyNCAyNCcgZmlsbD0nbm9uZScgeG1sbnM9J2h0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnJz4KPHBhdGggZD0nTTEyIDJDNi40OCAyIDIgNi40OCAyIDEyQzIgMTcuNTIgNi40OCAyMiAxMiAyMkMxNy41MiAyMiAyMiAxNy41MiAyMiAxMkMyMiA2LjQ4IDE3LjUyIDIgMTIgMlpNMTIgNUMxMy42NiA1IDE1IDYuMzQgMTUgOEMxNSA5LjY2IDEzLjY2IDExIDEyIDExQzEwLjM0IDExIDkgOS42NiA5IDhDOSA2LjM0IDEwLjM0IDUgMTIgNVpNMTIgMTkuMkM5LjUgMTkuMiA3LjI5IDE3LjkyIDYgMTUuOThDNi4wMyAxMy45OSAxMCAxMi45IDEyIDEyLjlDMTMuOTkgMTIuOSAxNy45NyAxMy45OSAxOCAxNS45OEMxNi43MSAxNy45MiAxNC41IDE5LjIgMTIgMTkuMlonIGZpbGw9JyMxNjE2MTYnLz4KPC9zdmc+Cg=="
+                    class="home-image"
+                  />
+                </a>
+              </div>
+            </div>
+            <div data-role="BurgerMenu" class="home-burger-menu">
+              <svg viewBox="0 0 1024 1024" class="home-icon">
+                <path
+                  d="M128 554.667h768c23.552 0 42.667-19.115 42.667-42.667s-19.115-42.667-42.667-42.667h-768c-23.552 0-42.667 19.115-42.667 42.667s19.115 42.667 42.667 42.667zM128 298.667h768c23.552 0 42.667-19.115 42.667-42.667s-19.115-42.667-42.667-42.667h-768c-23.552 0-42.667 19.115-42.667 42.667s19.115 42.667 42.667 42.667zM128 810.667h768c23.552 0 42.667-19.115 42.667-42.667s-19.115-42.667-42.667-42.667h-768c-23.552 0-42.667 19.115-42.667 42.667s19.115 42.667 42.667 42.667z"
+                ></path>
+              </svg>
+            </div>
+            <div data-role="MobileMenu" class="home-mobile-menu">
+              <div class="home-nav">
+                <div class="home-container02">
+                  <span class="home-logo-center1">DO LA LASH</span>
+                  <div
+                    data-role="CloseMobileMenu"
+                    class="home-close-mobile-menu"
+                  >
+                    <svg viewBox="0 0 1024 1024" class="home-icon02">
+                      <path
+                        d="M810 274l-238 238 238 238-60 60-238-238-238 238-60-60 238-238-238-238 60-60 238 238 238-238z"
+                      ></path>
+                    </svg>
+                  </div>
+                </div>
+                <div class="home-middle1">
+                  <a href="/" class="home-home">HOME</a>
+                  <a href="/services" class="home-services">SERVICES</a>
+                  <a href="/about-us" class="home-about-us">ABOUT US</a>
+                  <a href="/contact" class="home-contact">CONTACT</a>
+                  <a href="/profile" class="home-profile">
+                    PROFILE
+                  </a>
+                </div>
+              </div>
+              <div>
+                <svg viewBox="0 0 950.8571428571428 1024" class="home-icon04">
+                  <path
+                    d="M925.714 233.143c-25.143 36.571-56.571 69.143-92.571 95.429 0.571 8 0.571 16 0.571 24 0 244-185.714 525.143-525.143 525.143-104.571 0-201.714-30.286-283.429-82.857 14.857 1.714 29.143 2.286 44.571 2.286 86.286 0 165.714-29.143 229.143-78.857-81.143-1.714-149.143-54.857-172.571-128 11.429 1.714 22.857 2.857 34.857 2.857 16.571 0 33.143-2.286 48.571-6.286-84.571-17.143-148-91.429-148-181.143v-2.286c24.571 13.714 53.143 22.286 83.429 23.429-49.714-33.143-82.286-89.714-82.286-153.714 0-34.286 9.143-65.714 25.143-93.143 90.857 112 227.429 185.143 380.571 193.143-2.857-13.714-4.571-28-4.571-42.286 0-101.714 82.286-184.571 184.571-184.571 53.143 0 101.143 22.286 134.857 58.286 41.714-8 81.714-23.429 117.143-44.571-13.714 42.857-42.857 78.857-81.143 101.714 37.143-4 73.143-14.286 106.286-28.571z"
+                  ></path></svg
+                ><svg viewBox="0 0 877.7142857142857 1024" class="home-icon06">
+                  <path
+                    d="M585.143 512c0-80.571-65.714-146.286-146.286-146.286s-146.286 65.714-146.286 146.286 65.714 146.286 146.286 146.286 146.286-65.714 146.286-146.286zM664 512c0 124.571-100.571 225.143-225.143 225.143s-225.143-100.571-225.143-225.143 100.571-225.143 225.143-225.143 225.143 100.571 225.143 225.143zM725.714 277.714c0 29.143-23.429 52.571-52.571 52.571s-52.571-23.429-52.571-52.571 23.429-52.571 52.571-52.571 52.571 23.429 52.571 52.571zM438.857 152c-64 0-201.143-5.143-258.857 17.714-20 8-34.857 17.714-50.286 33.143s-25.143 30.286-33.143 50.286c-22.857 57.714-17.714 194.857-17.714 258.857s-5.143 201.143 17.714 258.857c8 20 17.714 34.857 33.143 50.286s30.286 25.143 50.286 33.143c57.714 22.857 194.857 17.714 258.857 17.714s201.143 5.143 258.857-17.714c20-8 34.857-17.714 50.286-33.143s25.143-30.286 33.143-50.286c22.857-57.714 17.714-194.857 17.714-258.857s5.143-201.143-17.714-258.857c-8-20-17.714-34.857-33.143-50.286s-30.286-25.143-50.286-33.143c-57.714-22.857-194.857-17.714-258.857-17.714zM877.714 512c0 60.571 0.571 120.571-2.857 181.143-3.429 70.286-19.429 132.571-70.857 184s-113.714 67.429-184 70.857c-60.571 3.429-120.571 2.857-181.143 2.857s-120.571 0.571-181.143-2.857c-70.286-3.429-132.571-19.429-184-70.857s-67.429-113.714-70.857-184c-3.429-60.571-2.857-120.571-2.857-181.143s-0.571-120.571 2.857-181.143c3.429-70.286 19.429-132.571 70.857-184s113.714-67.429 184-70.857c60.571-3.429 120.571-2.857 181.143-2.857s120.571-0.571 181.143 2.857c70.286 3.429 132.571 19.429 184 70.857s67.429 113.714 70.857 184c3.429 60.571 2.857 120.571 2.857 181.143z"
+                  ></path>
+                </svg>
+                <a
+                  href="https://www.facebook.com/DoLaLash"
+                  target="_blank"
+                  rel="noreferrer noopener"
+                >
+                  <svg viewBox="0 0 602.2582857142856 1024" class="home-icon08">
+                    <path
+                      d="M548 6.857v150.857h-89.714c-70.286 0-83.429 33.714-83.429 82.286v108h167.429l-22.286 169.143h-145.143v433.714h-174.857v-433.714h-145.714v-169.143h145.714v-124.571c0-144.571 88.571-223.429 217.714-223.429 61.714 0 114.857 4.571 130.286 6.857z"
+                    ></path>
+                  </svg>
+                </a>
+              </div>
+            </div>
+          </header>
+        </div>
+        <div class="home-main">
+          <div class="home-hero section-container">
+            <div class="home-max-width max-width-container">
+              <div class="home-hero1">
+                <div class="home-container03">
+                  <div class="home-info">
+                    <img
+                      alt="Rectangle43271305"
+                      src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0nMicgaGVpZ2h0PSc1Micgdmlld0JveD0nMCAwIDIgNTInIGZpbGw9J25vbmUnIHhtbG5zPSdodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2Zyc+CjxyZWN0IHdpZHRoPScyJyBoZWlnaHQ9JzUyJyBmaWxsPSdibGFjaycgZmlsbC1vcGFjaXR5PScwLjUnLz4KPC9zdmc+Cg=="
+                      class="home-image1"
+                    />
+                    <span class="home-text04">
+                      <span>LASH EXTENSION</span>
+                      <br />
+                      <span>2022</span>
+                      <br />
+                    </span>
+                  </div>
+                  <h1 class="home-text09">
+                    <span class="home-text10 Heading-1">
+                      Embrace your Natural Beauty
+                    </span>
+                    <br />
+                  </h1>
+                  <div class="home-container04">
+                    <span class="home-text12">
+                      Come in, relax and walk out feeling like a model
+                    </span>
+                  </div>
+                  <div class="home-btn-group">
+                    <a href="/services" class="home-navlink1 button">
+                      EXPLORE
+                    </a>
+                  </div>
+                </div>
+                <img
+                  alt="image23271449"
+                  src="https://images.unsplash.com/photo-1620464003286-a5b0d79f32c2?ixid=Mnw5MTMyMXwwfDF8c2VhcmNofDV8fG1ha2UlMjB1cHxlbnwwfHx8fDE2NzM1MjkxNDk&amp;ixlib=rb-4.0.3&amp;w=600"
+                  class="home-image2"
+                />
+              </div>
+            </div>
+          </div>
+          <div class="section-container column">
+            <div class="max-width-container">
+              <div class="section-heading-section-heading">
+                <h1 class="section-heading-text Heading-2">
+                  <span>PEEK-A-LASH</span>
+                </h1>
+                <span class="section-heading-text1">
+                  <span>Find the best and suitable design lashes for you</span>
+                </span>
+              </div>
+              <div class="home-cards-container">
+                <div
+                  class="category-card-category-card category-card-root-class-name"
+                >
+                  <img
+                    alt="image"
+                    src="https://images.unsplash.com/photo-1535310172250-0dcb6b63324e?ixid=Mnw5MTMyMXwwfDF8c2VhcmNofDIwfHxleWVsYXNoZXN8ZW58MHx8fHwxNjczNTMyODk2&amp;ixlib=rb-4.0.3&amp;w=1500"
+                    class="category-card-image"
+                  />
+                  <span class="category-card-text">
+                    <span>Bae-sick: Classic Lashes</span>
+                  </span>
+                </div>
+                <div class="category-card-category-card">
+                  <img
+                    alt="image"
+                    src="https://images.unsplash.com/photo-1588398478692-d119ca406f7c?ixid=Mnw5MTMyMXwwfDF8c2VhcmNofDEzfHxleWVsYXNoZXN8ZW58MHx8fHwxNjczNTMyODk2&amp;ixlib=rb-4.0.3&amp;w=1500"
+                    class="category-card-image"
+                  />
+                  <span class="category-card-text">
+                    <span>Miss International Hybrid</span>
+                  </span>
+                </div>
+                <div class="category-card-category-card">
+                  <img
+                    alt="image"
+                    src="https://images.unsplash.com/photo-1528047128849-2382ff646073?ixid=Mnw5MTMyMXwwfDF8c2VhcmNofDEwfHxleWVsYXNoZXN8ZW58MHx8fHwxNjczNTMyODk2&amp;ixlib=rb-4.0.3&amp;w=1500"
+                    class="category-card-image"
+                  />
+                  <span class="category-card-text">
+                    <span>Lover Mega Volume</span>
+                  </span>
+                </div>
+                <div class="category-card-category-card">
+                  <img
+                    alt="image"
+                    src="https://images.unsplash.com/photo-1603543394745-9d100843680b?ixid=Mnw5MTMyMXwwfDF8c2VhcmNofDI3fHxleWVsYXNoZXN8ZW58MHx8fHwxNjczNTMzMjM4&amp;ixlib=rb-4.0.3&amp;w=1500"
+                    class="category-card-image"
+                  />
+                  <span class="category-card-text">
+                    <span>Unbothered</span>
+                  </span>
+                </div>
+                <div class="category-card-category-card">
+                  <img
+                    alt="image"
+                    src="https://images.unsplash.com/photo-1530707114297-4af4b3cafe16?ixid=Mnw5MTMyMXwwfDF8c2VhcmNofDI1fHxleWVsYXNoJTIwfGVufDB8fHx8MTY3MzUzMzUzOA&amp;ixlib=rb-4.0.3&amp;w=1500"
+                    class="category-card-image"
+                  />
+                  <span class="category-card-text"><span>Rose</span></span>
+                </div>
+              </div>
+              <div class="home-testimonial">
+                <div class="home-container05">
+                  <h1 class="home-text13">
+                    <span>What they’re saying</span>
+                    <br />
+                    <span></span>
+                  </h1>
+                  <span class="home-text16">
+                    <span>
+                      Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                      Sed non volutpat turpis. Mauris luctus rutrum mi ut
+                      rhoncus. Integer in dignissim tortor.
+                    </span>
+                  </span>
+                  <div class="home-container06">
+                    <div
+                      class="testimonial-card11-testimonial-card testimonial-card11-root-class-name2"
+                    >
+                      <svg
+                        viewBox="0 0 950.8571428571428 1024"
+                        class="testimonial-card11-icon"
+                      >
+                        <path
+                          d="M438.857 182.857v402.286c0 161.143-131.429 292.571-292.571 292.571h-36.571c-20 0-36.571-16.571-36.571-36.571v-73.143c0-20 16.571-36.571 36.571-36.571h36.571c80.571 0 146.286-65.714 146.286-146.286v-18.286c0-30.286-24.571-54.857-54.857-54.857h-128c-60.571 0-109.714-49.143-109.714-109.714v-219.429c0-60.571 49.143-109.714 109.714-109.714h219.429c60.571 0 109.714 49.143 109.714 109.714zM950.857 182.857v402.286c0 161.143-131.429 292.571-292.571 292.571h-36.571c-20 0-36.571-16.571-36.571-36.571v-73.143c0-20 16.571-36.571 36.571-36.571h36.571c80.571 0 146.286-65.714 146.286-146.286v-18.286c0-30.286-24.571-54.857-54.857-54.857h-128c-60.571 0-109.714-49.143-109.714-109.714v-219.429c0-60.571 49.143-109.714 109.714-109.714h219.429c60.571 0 109.714 49.143 109.714 109.714z"
+                        ></path>
+                      </svg>
+                      <div class="testimonial-card11-testimonial">
+                        <span class="testimonial-card11-text">
+                          <span>
+                            Lorem ipsum dolor sit amet, consectetur adipiscing
+                            elit. In lorem lorem, malesuada in metus vitae,
+                            scelerisque accumsan ipsum. Nam pellentesque nulla
+                            leo, sagittis vehicula sem commodo nec.
+                          </span>
+                        </span>
+                        <span class="testimonial-card11-text1">
+                          <span>Jane Doe</span>
+                        </span>
+                        <span class="testimonial-card11-text2">
+                          <span>CLIENT</span>
+                        </span>
+                        <img
+                          alt="profile"
+                          src="https://images.unsplash.com/photo-1557053910-d9eadeed1c58?ixid=Mnw5MTMyMXwwfDF8c2VhcmNofDF8fHdvbWFuJTIwcG9ydHJhaXR8ZW58MHx8fHwxNjI2NDUxOTgy&amp;ixlib=rb-1.2.1&amp;h=1200"
+                          class="testimonial-card11-image"
+                        />
+                      </div>
+                    </div>
+                    <div
+                      class="testimonial-card11-testimonial-card testimonial-card11-root-class-name"
+                    >
+                      <svg
+                        viewBox="0 0 950.8571428571428 1024"
+                        class="testimonial-card11-icon"
+                      >
+                        <path
+                          d="M438.857 182.857v402.286c0 161.143-131.429 292.571-292.571 292.571h-36.571c-20 0-36.571-16.571-36.571-36.571v-73.143c0-20 16.571-36.571 36.571-36.571h36.571c80.571 0 146.286-65.714 146.286-146.286v-18.286c0-30.286-24.571-54.857-54.857-54.857h-128c-60.571 0-109.714-49.143-109.714-109.714v-219.429c0-60.571 49.143-109.714 109.714-109.714h219.429c60.571 0 109.714 49.143 109.714 109.714zM950.857 182.857v402.286c0 161.143-131.429 292.571-292.571 292.571h-36.571c-20 0-36.571-16.571-36.571-36.571v-73.143c0-20 16.571-36.571 36.571-36.571h36.571c80.571 0 146.286-65.714 146.286-146.286v-18.286c0-30.286-24.571-54.857-54.857-54.857h-128c-60.571 0-109.714-49.143-109.714-109.714v-219.429c0-60.571 49.143-109.714 109.714-109.714h219.429c60.571 0 109.714 49.143 109.714 109.714z"
+                        ></path>
+                      </svg>
+                      <div class="testimonial-card11-testimonial">
+                        <span class="testimonial-card11-text">
+                          <span>
+                            Lorem ipsum dolor sit amet, consectetur adipiscing
+                            elit. In lorem lorem, malesuada in metus vitae,
+                            scelerisque accumsan ipsum. Nam pellentesque nulla
+                            leo, sagittis vehicula sem commodo nec.
+                          </span>
+                        </span>
+                        <span class="testimonial-card11-text1">
+                          <span>Jane Doe</span>
+                        </span>
+                        <span class="testimonial-card11-text2">
+                          <span>CLIENT</span>
+                        </span>
+                        <img
+                          alt="profile"
+                          src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?ixid=Mnw5MTMyMXwwfDF8c2VhcmNofDd8fHBvcnRyYWl0fGVufDB8fHx8MTYyNjM3ODk3Mg&amp;ixlib=rb-1.2.1&amp;h=1200"
+                          class="testimonial-card11-image"
+                        />
+                      </div>
+                    </div>
+                    <div
+                      class="testimonial-card11-testimonial-card testimonial-card11-root-class-name1"
+                    >
+                      <svg
+                        viewBox="0 0 950.8571428571428 1024"
+                        class="testimonial-card11-icon"
+                      >
+                        <path
+                          d="M438.857 182.857v402.286c0 161.143-131.429 292.571-292.571 292.571h-36.571c-20 0-36.571-16.571-36.571-36.571v-73.143c0-20 16.571-36.571 36.571-36.571h36.571c80.571 0 146.286-65.714 146.286-146.286v-18.286c0-30.286-24.571-54.857-54.857-54.857h-128c-60.571 0-109.714-49.143-109.714-109.714v-219.429c0-60.571 49.143-109.714 109.714-109.714h219.429c60.571 0 109.714 49.143 109.714 109.714zM950.857 182.857v402.286c0 161.143-131.429 292.571-292.571 292.571h-36.571c-20 0-36.571-16.571-36.571-36.571v-73.143c0-20 16.571-36.571 36.571-36.571h36.571c80.571 0 146.286-65.714 146.286-146.286v-18.286c0-30.286-24.571-54.857-54.857-54.857h-128c-60.571 0-109.714-49.143-109.714-109.714v-219.429c0-60.571 49.143-109.714 109.714-109.714h219.429c60.571 0 109.714 49.143 109.714 109.714z"
+                        ></path>
+                      </svg>
+                      <div class="testimonial-card11-testimonial">
+                        <span class="testimonial-card11-text">
+                          <span>
+                            Lorem ipsum dolor sit amet, consectetur adipiscing
+                            elit. In lorem lorem, malesuada in metus vitae,
+                            scelerisque accumsan ipsum. Nam pellentesque nulla
+                            leo, sagittis vehicula sem commodo nec.
+                          </span>
+                        </span>
+                        <span class="testimonial-card11-text1">
+                          <span>Jane Doe</span>
+                        </span>
+                        <span class="testimonial-card11-text2">
+                          <span>CLIENT</span>
+                        </span>
+                        <img
+                          alt="profile"
+                          src="https://images.unsplash.com/photo-1531746020798-e6953c6e8e04?ixid=Mnw5MTMyMXwwfDF8c2VhcmNofDd8fHdvbWFuJTIwcG9ydHJhaXR8ZW58MHx8fHwxNjI2NDUxOTgy&amp;ixlib=rb-1.2.1&amp;h=1200"
+                          class="testimonial-card11-image"
+                        />
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="home-banner">
+              <div class="home-container07">
+                <h3 class="home-text18 Heading-3">DO LA LASH</h3>
+                <span class="home-text19">by angela</span>
+              </div>
+            </div>
+            <div class="home-container08 max-width-container">
+              <div class="home-container09">
+                <span class="home-text20">
+                  Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed
+                  do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+                  Tempor orci eu lobortis elementum nibh. Neque volutpat ac
+                  tincidunt vitae semper quis lectus nulla at. Mi proin sed
+                  libero enim sed faucibus turpis in. Id volutpat lacus laoreet
+                  non. Cursus metus aliquam eleifend mi in. Velit ut tortor
+                  pretium viverra suspendisse potenti nullam ac tortor. Dui
+                  sapien eget mi proin sed libero enim sed. Eu lobortis
+                  elementum nibh tellus molestie nunc non blandit massa. Neque
+                  convallis a cras semper auctor neque vitae tempus. Nunc mi
+                  ipsum faucibus vitae aliquet nec ullamcorper sit amet. Sed
+                  odio morbi quis commodo odio aenean sed. Egestas congue
+                  quisque egestas diam.
+                </span>
+                <a href="/about-us" class="home-navlink2 button">
+                  Read more
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="home-footer">
+          <div class="max-width-container">
+            <footer class="home-footer1">
+              <div class="home-container10">
+                <h3 class="home-text21 Heading-3">DO LA LASH</h3>
+                <span class="home-text22">
+                  Merry Homes II Subdivision Caloocan City, barangay 174
+                </span>
+                <span class="home-text23">(671) 555-0110</span>
+                <span class="home-text24">contact@dolalash.com</span>
+              </div>
+              <div class="home-links-container"></div>
+            </footer>
+          </div>
+        </div>
+      </div>
+    </div>
+    <script src="https://unpkg.com/@teleporthq/teleport-custom-scripts"></script>
+    <script src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"></script>
+  </body>
+</html>
