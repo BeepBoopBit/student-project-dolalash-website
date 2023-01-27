@@ -121,7 +121,7 @@
                     <span>Preferred Date and Time</span>
                     <br />
                   </span>
-                  <div class="forms-container6">
+                  <div style="position: relative" class="forms-container6">
                     <div class="forms-container7">
                       <svg viewBox="0 0 1024 1024" class="forms-icon10">
                         <path
@@ -136,6 +136,12 @@
                         class="forms-textinput input"
                       />
                     </div>
+                    {% if messages %}
+                      {% for message in messages %}
+                          <div style="position: absolute; right: -100%; display: flex; align-items: center">{{ message }}</div>
+                      {% endfor %}
+                    {% endif %}
+                    
                   </div>
                   <span class="forms-text10">
                     <span>Service</span>

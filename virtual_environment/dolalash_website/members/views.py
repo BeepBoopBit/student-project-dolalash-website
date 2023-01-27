@@ -6,6 +6,10 @@ from . import database
 from .user import User
 from pprint import pprint
 from .PyCa import PyCaMod
+import pathlib
+from datetime import datetime, time
+from django.contrib import messages
+from django.http import JsonResponse
 # Create your views here.
 
 def generate_html_view(path_to_html: str):
@@ -99,9 +103,19 @@ def reset_password(request):
 
 @csrf_protect
 def handle_booking(request):
+    # Create an instance of PyCAMod using the path
+    root = f"{pathlib.Path(__file__).parent.absolute()}";
+    PyCaInstance = PyCaMod.PyCa(tokenPath=f"{root}\\PyCa\\token.json", 
+                                credentialPath=f"{root}\\PyCa\\credentials.json")
+    
+    # Get all events
+    events = PyCaInstance.getEvent()
+
     # Get the data and store it as a dictionary
     form_data = dict(request.POST.items())
     
+    print(request.POST.items())
+
     # Get the date time and change the format to RFC3339
     startDate = form_data['datetime'] + ":00.00Z"
     
@@ -109,7 +123,7 @@ def handle_booking(request):
     myDateTime = form_data['datetime'].split("T")
     d,t = myDateTime[0], myDateTime[1].split(':')
     endDate = d + "T"+ str(int(t[0]) + 1) + ":" + t[1] + ":00.00Z"
-    
+
     # Prepare the data for the event
     data = {
         # CHANGE THIS
@@ -141,9 +155,15 @@ def handle_booking(request):
         },
     }
     
-    # Create an instance of PyCAMod using the path
-    PyCaInstance = PyCaMod.PyCa(tokenPath="C:\\Users\\wcbre\\School\\00_Academic\\01_Y2\\Q2\\CS155L\\dolalash-website\\virtual_environment\\dolalash_website\\members\\PyCa\\token.json", 
-                                credentialPath="C:\\Users\\wcbre\\School\\00_Academic\\01_Y2\\Q2\\CS155L\\dolalash-website\\virtual_environment\\dolalash_website\\members\\PyCa\\credentials.json")
+    d = d.split('-')
+    # newEvent = data["summary"] + "|" + str(int(t[0])) + ":" + t[1] + "|" + str(int(t[0]) + 1) + ":" + t[1]
+    newEvent = f"{data['summary']}|{d[0]}-{d[1]}-{d[2]}T{str(int(t[0]))}:{t[1]}:00|{d[0]}-{d[1]}-{d[2]}T{str(int(t[0]) + 1)}:{t[1]}:00"
+    is_valid = _validate_event(events, newEvent)
+
+    if not is_valid:
+        messages.info(request,'Unavailable date, please choose a different one.')
+        return redirect('book')
+
     # Create the Event
     PyCaInstance.createEvent(data)
     
@@ -179,7 +199,64 @@ def book(request):
         return render(request, "forms.html")
     else:
         return redirect("/log-in-and-sign-up-page")
+
+def _validate_event(events, event) -> bool:
+    valid = True
+    # Extract date and time input
     
+    i_startDateTime = event.split('|')[1]
+
+    i_startDate = i_startDateTime.split("T")[0]
+    i_startTime = i_startDateTime.split("T")[1]
+    i_startHours = i_startTime.split(":")[0]
+    i_startMin = i_startTime.split(":")[1]
+    i_startSec = i_startTime.split(":")[2][:-1]
+
+    i_startTimeObj = time(int(i_startHours), int(i_startMin), int(i_startSec))
+
+    i_endDateTime = event.split('|')[2]
+
+    i_endDate = i_endDateTime.split("T")[0]
+    i_endTime = i_endDateTime.split("T")[1]
+    i_endHours = i_endTime.split(":")[0]
+    i_endMin = i_endTime.split(":")[1]
+    i_endSec = i_endTime.split(":")[2][:-1]
+
+    i_endTimeObj = time(int(i_endHours), int(i_endMin), int(i_endSec))
+
+    for e in events:
+        e_startDateTime = e.split('|')[1]
+
+        e_startDate = e_startDateTime.split("T")[0]
+        e_startTime = e_startDateTime.split("T")[1]
+        e_startHours = e_startTime.split(":")[0]
+        e_startMin = e_startTime.split(":")[1]
+        e_startSec = e_startTime.split(":")[2][:-1]
+        
+        e_startTimeObj = time(int(e_startHours), int(e_startMin), int(e_startSec))
+
+        e_endDateTime = e.split('|')[2]
+
+        e_endDate = e_endDateTime.split("T")[0]
+        e_endTime = e_endDateTime.split("T")[1]
+        e_endHours = e_endTime.split(":")[0]
+        e_endMin = e_endTime.split(":")[1]
+        e_endSec = e_endTime.split(":")[2][:-1]
+
+        e_endTimeObj = time(int(e_endHours), int(e_endMin), int(e_endSec))
+
+        if e_startDate == i_startDate or e_endDate == i_endDate or\
+           e_startDate == i_endDate or e_endDate == i_startDate:
+            # Check if input START object is in between an existing start and end time
+            if i_startTimeObj >= e_startTimeObj and i_startTimeObj <= e_endTimeObj:
+                valid = False
+                break
+
+            # Check if input END object is in between an existing start and end time
+            if i_endTimeObj >= e_startTimeObj and i_endTimeObj <= e_endTimeObj:
+                valid = False
+                break
+    return valid
     
 home = generate_html_view("index.html")
 services = generate_html_view("services.html")
