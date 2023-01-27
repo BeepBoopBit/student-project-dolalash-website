@@ -41,13 +41,16 @@ class PyCa:
         # Reference: https://developers.google.com/calendar/api/v3/reference/events/insert
         event = self.service.events().insert(calendarId=calendarId, body=event).execute()
         print('Event created: %s' % (event.get('htmlLink')))
+
     def getEvent(self):
         page_token = None
         events = self.service.events().list(calendarId='primary', pageToken=page_token).execute()
+        list_of_events = []
         for event in events['items']:
-            print (event['summary'] + ":" + str(event['start']['dateTime']))
+            print (event['summary'] + "|" + str(event['start']['dateTime']) + "|" + str(event['end']['dateTime']))
+            list_of_events.append(event['summary'] + "|" + str(event['start']['dateTime']) + "|" + str(event['end']['dateTime']))
         page_token = events.get('nextPageToken')
-        return [event['summary'], event['start']['dateTime']]
+        return list_of_events
 
 if __name__ == '__main__':
     newCalendar = PyCa()
